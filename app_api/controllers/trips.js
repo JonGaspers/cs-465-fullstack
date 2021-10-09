@@ -118,7 +118,7 @@ const tripsDeleteTrip = async (req, res) => {
             result = trip;
         })
     console.log('1');
-    return result;
+    return res.status(200).send({message: "SUCCESS"});
 /*         .catch(err => {
             if (err.kind === 'ObjectId') {
                 return res

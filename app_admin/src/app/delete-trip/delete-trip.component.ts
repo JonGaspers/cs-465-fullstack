@@ -32,33 +32,16 @@ export class DeleteTripComponent implements OnInit {
   }
 
   async onSubmit() {
-    /* console.log('Deleting Trip with TripCode: ' + this.tripCode);
-    this.tripService.deleteTrip(this.tripCode).then(data => {
-      console.log(data);
-      this.router.navigate(['']);
-      console.log('somethign');
-    }).catch(err => {
-      console.log(err)
-    }); */
-    (async ()=> {
-      console.log('Deleting Trip with TripCode: ' + this.tripCode);
+    console.log('Deleting Trip with TripCode: ' + this.tripCode);
     try {
       const del = await this.tripService.deleteTrip(this.tripCode);
       console.log(del);
     } catch (err) {
       console.log(err);
     }
-    })();
-    setTimeout(() => {
+    this.router.navigate(['']);
+    /* setTimeout(() => {
       this.router.navigate(['']);
-    }, 500);
-
-    //this.router.navigate(['']);
-    /* //this.router.navigate(['']);
-      .then(data => {
-        console.log(data);
-        this.router.navigate(['']);
-      }); */
+    }, 500); */
   }
-
 }
