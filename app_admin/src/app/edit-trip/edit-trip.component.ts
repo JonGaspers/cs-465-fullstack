@@ -20,7 +20,7 @@ export class EditTripComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    //retrieve stached tripId
+    //retrieve stashed tripId
     let tripCode = localStorage.getItem("tripCode");
     if(!tripCode) {
       alert("Something wrong, couldn't find where I stashed tripCode!");

@@ -107,9 +107,34 @@ const tripsUpdateTrip = async (req, res) => {
         });
 }
 
+//delete Trip
+const tripsDeleteTrip = async (req, res) => {
+    console.log(req.body);
+    let result;
+    Model
+        .deleteOne({'code': req.params.tripCode})
+        .exec(trip => {
+            console.log("Trip with ID: " + req.params.tripCode + " deleted from db.");
+            result = trip;
+        })
+    console.log('1');
+    return result;
+/*         .catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res
+                    .status(404)
+                    .send({message: "Trip couldn't be found to be deleted with code: " + req.params.tripCode});
+            }
+            return res
+                .status(500)
+                .json(err);
+        }); */
+}
+
 module.exports = {
     tripsList,
     tripsFindByCode,
     tripsAddTrip,
-    tripsUpdateTrip
+    tripsUpdateTrip,
+    tripsDeleteTrip
 };
